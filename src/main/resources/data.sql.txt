@@ -1,0 +1,30 @@
+
+
+
+    
+INSERT INTO STAFF(DESCR, ORDER_NAME)
+    VALUES
+    (     'Craig','Wells'    ),
+    (     'Joshua','Bloch'   ),
+    (     'Alex','Antonov'   ),
+    (     'Joyce','Farrell'  ),
+    (     'Cay','Horstmann'  ), 
+    (     'Janet','Gregory'  ), 
+    (     'Greg','Turnquist' ),
+    (     'Walter','Savich'  ),
+    (     'John','Carnell'   );
+
+INSERT INTO Driver ( Driver_Name, Route_Location, ORDER_ID)
+VALUES 
+    ('Spring Boot in Action', '2018', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Wells')),
+    ('Core Java for the Impatient', '2018', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Horstmann')),
+    ('Spring Microservices in Action', '2016', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Carnell')),
+    ('Java Programming', '2018', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Farrell')),
+    ('Beginning Java Databases', '2001', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Carnell')),
+    ('Effective Java', '2017', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Bloch')),
+    ('Spring Boot 2.0', '2017', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Antonov')),
+    ('Spring Boot Cookbook', '2015', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Antonov')),
+    ('Learning spring Boot 2.0', '2017', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Turnquist')),
+    ('Absolute Java', '2015', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Savich')),
+    ('Agile Testing', '2015', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Gregory')),
+    ('Java: An Introduction to Problem Solving', '2017', (SELECT ORDER_ID from STAFF where ORDER_NAME = 'Savich'));

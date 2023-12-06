@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        table,td,th {border: black solid}
+        table{border-collapse: collapse; margin: auto;}
+    </style>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+</head>
+<body>
+
+    <h1 class="heading">Delete Driver</h1>
+
+    <div th:insert="fragments/frags :: navbar" class="navbar">
+    </div>
+
+    
+
+
+
+    <form action="/deleteOrder" method="post">
+
+        <label for="deleteOrder">Delete Order:</label>
+        <input type="text" name="deleteOrder",  id="deleteOrder">
+
+        <input type="submit" value="Delete">
+        <br><br>
+
+
+    </form>
+
+    <form action="/deleteAll" method="post">
+
+        <input type="submit" value="Delete All">
+
+    </form>
+
+    <table>
+        <tr>
+            <th>Driver_id</th>
+            <th>Driver_name</th>
+            <th>Driver_route_location</th>
+        </tr>
+        <tr th:each="drivers:${driver}">
+            <td th:text="${drivers.id}"></td>
+            <td th:text="${drivers.driverName}"></td>
+            <td th:text="${drivers.location}"></td>
+  
+        </tr>
+
+    </table>
+
+
+
+
+</body>
+</html>

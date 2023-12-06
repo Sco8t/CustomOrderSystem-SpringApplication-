@@ -1,0 +1,40 @@
+body {
+    background-color:rgb(144, 129, 129)
+}
+
+a{
+    background-color: #aeb078;
+    padding:10px;
+}
+
+form.center
+{
+    border:solid rgb(255, 0, 0);
+    padding: 20px;
+    width:30%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.navbar
+{
+    padding: 20px;
+    text-align: center;
+
+}
+
+h1.heading{
+    text-align: center;
+}
+
+td{
+    padding : 5px;
+}
+
+div.dropdown
+{
+    padding: 20px;
+    text-align: center;
+
+}

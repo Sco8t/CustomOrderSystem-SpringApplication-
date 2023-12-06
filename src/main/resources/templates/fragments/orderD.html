@@ -1,0 +1,23 @@
+<div th:fragment="dropdown">
+
+
+        <form action="/box" method="post" th:object="${emp}">
+
+                <label for="role">Select Department:</label>
+                <select id="role" name="role">
+                    <option value="orders">orders</option>
+                    <option value="sales">sales</option>
+                    <option value="repairs">repairs</option>
+                    <option value="admin">admin</option>
+                </select>
+                <button type="submit">Filter</button>
+                <br><br>
+        
+
+            </form>
+        
+
+    
+    
+
+</div>

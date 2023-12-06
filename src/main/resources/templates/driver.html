@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        table,td,th {border: black solid}
+        table{border-collapse: collapse; margin: auto;}
+    </style>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+</head>
+
+
+<body>
+
+    <h1 class="heading">List Drivers</h1>
+
+    <div th:insert="fragments/frags :: navbar" class="navbar">
+    </div>
+
+    <table>
+        <tr>
+            <th>Driver_id</th>
+            <th>Driver_name</th>
+            <th>Driver_route_location</th>
+        </tr>
+        <tr th:each="drivers:${driver}">
+            <td th:text="${drivers.id}"></td>
+            <td th:text="${drivers.driverName}"></td>
+            <td th:text="${drivers.location}"></td>
+
+  
+        </tr>
+
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th>Product_Assigned</th>
+            <th>Driver_Assigned</th>
+        </tr>
+        <tr th:each="staffs:${staff}">
+            <td th:text="${staffs.name}"></td>
+            <td th:text="${staffs.driver.driverName}"></td>
+            
+  
+        </tr>
+
+    </table>
+
+</body>
+</html>

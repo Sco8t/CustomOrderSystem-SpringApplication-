@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th {border: black solid}
+        table{border-collapse: collapse; margin: auto;}
+    </style>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+    
+    <h1>Hey <span th:text="${value.get(0).driver.driverName}"></span>,</h1>
+    <h2>Product Route Location: <span th:text="${value.get(0).deliveryLocation}"></span></h2>
+
+    <table border="2">
+        <tr>
+            <th>Product Code</th>
+            <th colspan="2">Product name</th>
+        </tr>
+        <tr th:each="val:${value}">
+            <td th:text="${val.id}"></td>
+            <td th:text="${val.name}"></td>
+        </tr>
+
+    </table>
+
+    <h2>If you wish to unlink order that is assigned to you, please feel to do so below. </h2>
+    <p>Enter your name to confirm</p>
+    <form action="/unlinkOrder" method="post">
+
+        <input type="text" id="custId" name="custId" th:value="${value.get(0).driver.driverName}">
+
+        <input type="submit" value="Unlink Order">
+
+    </form>
+    
+</body>
+</html>

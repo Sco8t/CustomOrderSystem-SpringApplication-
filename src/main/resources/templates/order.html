@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        table,td,th {border: black solid}
+        table{border-collapse: collapse; margin: auto;}
+    </style>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+</head>
+<body>
+
+    <h1 class="heading">Add Order/List Order/Filter System</h1>
+
+    <div th:insert="fragments/frags :: navbar" class="navbar">
+    </div>
+
+
+    <form action="/addOrder" method="post">
+
+        <label for="orderDesc">Description</label>
+        <input type="text" name="orderDesc" id="orderDesc"> <br>
+
+        <label for="orderName">Order_name</label>
+        <input type="text" name="orderName" id="orderName"> <br>
+
+        <label for="orderDelivery">Order_delivery</label>
+        <input type="text" name="orderDelivery" id="orderDelivery">
+
+        <input type="submit" value="Send">
+        <br><br>
+
+
+    </form>
+    
+    <form action="/filterLocation" method="post">
+
+        <label for="location">Filter By Location</label>
+        <input type="text" name="location" id="location">
+        <input type="submit" value="Send">
+
+
+    </form>
+
+    <table>
+        <tr>
+            <th>Order_Id</th>
+            <th>Description</th>
+            <th>Order_name</th>
+            <th>Order_delivery</th>
+            <th>Order_Transit</th>
+        </tr>
+        <tr th:each="order:${order}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.description}"></td>
+            <td th:text="${order.name}"></td>
+            <td th:text="${order.deliveryLocation}"></td>
+            <td th:text="${order.inDelivery}"></td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
