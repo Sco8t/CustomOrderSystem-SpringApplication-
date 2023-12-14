@@ -11,7 +11,6 @@ import comp31.a2.model.repositories.AdminRepo;
 import comp31.a2.model.repositories.DriverPassRepo;
 import comp31.a2.model.repositories.DriverRepo;
 import comp31.a2.model.repositories.StaffRepo;
-import comp31.a2.model.repositories.StaffRepo;
 
 @Component
 public class InitData implements CommandLineRunner {
@@ -20,7 +19,6 @@ public class InitData implements CommandLineRunner {
     DriverRepo driverRepo;
     DriverPassRepo driverPassRepo;
     AdminRepo adminRepo;
-
 
     public InitData(StaffRepo staffRepo, DriverRepo driverRepo, DriverPassRepo driverPassRepo, AdminRepo adminRepo) {
         this.staffRepo = staffRepo;
@@ -32,28 +30,11 @@ public class InitData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // StaffRepo.save(new Entity1("Entity1"));
-        // StaffRepo.save(new Entity1("Entity2"));
-        // StaffRepo.save(new Entity1("Entity3"));
-
         Admin admin1 = new Admin("scott", "scott");
         Admin admin2 = new Admin("bolt", "bolt");
 
         adminRepo.save(admin1);
         adminRepo.save(admin2);
-
-
-        
-
-        /*staffRepo.save(staff1);
-        staffRepo.save(staff2);
-        staffRepo.save(staff3);
-        staffRepo.save(staff4);
-        staffRepo.save(staff5);
-        staffRepo.save(staff6);
-
-
-        staffRepo.save(empty);*/
 
         DriverPass driverPass1 = new DriverPass("John");
         DriverPass driverPass2 = new DriverPass("Vemi");
@@ -61,7 +42,6 @@ public class InitData implements CommandLineRunner {
         DriverPass driverPass4 = new DriverPass("Robert");
         DriverPass driverPass5 = new DriverPass("Peter");
         DriverPass driverPass6 = new DriverPass("Peter");
-        DriverPass driverPass7 = new DriverPass("null");
 
         Driver driver1 = new Driver("John", "Ontario", driverPass1);
         Driver driver2 = new Driver("Vemi", "Toronto", driverPass2);
@@ -70,7 +50,6 @@ public class InitData implements CommandLineRunner {
         Driver driver5 = new Driver("Peter", "OTTAWA", driverPass5);
         Driver driver6 = new Driver("Sam", "OTTAWA", driverPass6);
 
-
         driverRepo.save(driver1);
         driverRepo.save(driver2);
         driverRepo.save(driver3);
@@ -78,18 +57,14 @@ public class InitData implements CommandLineRunner {
         driverRepo.save(driver5);
         driverRepo.save(driver6);
 
-
         Staff staff1 = new Staff("product1", "eraser", "Ontario", "YES", driver1);
         Staff staff2 = new Staff("product2", "boot", "Toronto", "NO", null);
         Staff staff3 = new Staff("product3", "pen", "BC", "YES", driver3);
         Staff staff4 = new Staff("product4", "sharpener", "BC", "NO", null);
         Staff staff5 = new Staff("product5", "whitner", "LV", "NO", null);
 
-        Staff empty = new Staff("null", "null", "null", "null", null);
-
         Staff staff6 = new Staff("product6", "glue", "Ontario", "NO", null);
         Staff staff7 = new Staff("product6", "glue1", "Ontario", "NO", null);
-
 
         staffRepo.save(staff1);
         staffRepo.save(staff2);
@@ -98,11 +73,6 @@ public class InitData implements CommandLineRunner {
         staffRepo.save(staff5);
         staffRepo.save(staff6);
         staffRepo.save(staff7);
-        /*driverRepo.save(new Driver("Vemi", "Toronto", empty, driverPass2));
-        driverRepo.save(new Driver("Griffin", "BC", staff3, driverPass3));
-        driverRepo.save(new Driver("Robert", "LV", empty, driverPass4));
-        driverRepo.save(new Driver("Peter", "OTTAWA", empty, driverPass5));*/
-
 
     }
 

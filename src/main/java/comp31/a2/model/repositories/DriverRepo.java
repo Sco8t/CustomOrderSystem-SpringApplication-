@@ -6,9 +6,8 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import comp31.a2.model.entities.Driver;
-import comp31.a2.model.entities.Staff;
 
-public interface DriverRepo extends CrudRepository<Driver, Integer>{
+public interface DriverRepo extends CrudRepository<Driver, Integer> {
 
     public List<Driver> findAll();
 
@@ -17,7 +16,5 @@ public interface DriverRepo extends CrudRepository<Driver, Integer>{
     List<Driver> findByDriverName(String driverName);
 
     Optional<Driver> findById(Integer id);
-
-
 
 }

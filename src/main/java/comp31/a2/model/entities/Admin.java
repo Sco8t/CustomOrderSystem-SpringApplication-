@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-//@Table(name="Driver")
+// @Table(name="Driver")
 @NoArgsConstructor
 public class Admin {
 
@@ -25,13 +25,9 @@ public class Admin {
     @Column(name = "password")
     private String password;
 
-
-    public Admin(String userName, String password){
+    public Admin(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
-
-
-
 
 }

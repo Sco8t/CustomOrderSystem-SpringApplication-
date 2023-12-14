@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-
 import comp31.a2.model.entities.Admin;
 import comp31.a2.model.entities.Driver;
 import comp31.a2.model.entities.DriverPass;
@@ -44,20 +43,17 @@ public class TotService {
         List<Staff> list1 = staffRepo.findAll();
 
         logger.info(list1.get(0).getDriver().getDriverName());
-        List<Staff> list2 = staffRepo.findByName("John");
         return staffRepo.findAll();
 
     }
 
     public List<Staff> findByDriverClass() {
 
-        // logger.info(list1.get(0).getDriver().getDriverName());
         logger.info("hello");
         List<Staff> staffList = staffRepo.findByInDelivery("YES");
 
         logger.info(staffList.get(0).getName());
         return staffList;
-        // return staffRepo.findAll();
 
     }
 
@@ -67,10 +63,8 @@ public class TotService {
         return driverRepo.findAll();
     }
 
-
     public void assignOrder(String orderAssign) {
 
-        // List<Staff> orderList = staffRepo.findByName(orderAssign);
         List<Staff> orderList = staffRepo.findByName(orderAssign);
 
         if (!orderList.isEmpty()) {
@@ -86,10 +80,8 @@ public class TotService {
             if (driverTemp.getLocation() == orderTemp.getDeliveryLocation()) {
                 orderTemp.setInDelivery("YES");
 
-
                 orderTemp.setDriver(driverTemp);
                 staffRepo.save(orderTemp);
-
 
             } else {
                 logger.info("bye");
@@ -100,11 +92,7 @@ public class TotService {
 
     }
 
-
-
     public void driverDelete(Integer id) {
-
-        
 
         Optional<Driver> driverList = driverRepo.findById(id);
         List<Staff> staffList = driverList.get().getStaff();
@@ -175,14 +163,11 @@ public class TotService {
 
         List<Driver> driverList = driverRepo.findByDriverName(name);
 
-        String foundLoc = driverList.get(0).getLocation().toString();
-
         totList = driverList.get(0).getStaff();
 
         return totList;
 
     }
-
 
     public String checkLoginStaff(String name, String password) {
         String webPage = "login-form";
@@ -209,7 +194,6 @@ public class TotService {
 
     public void unlinkOrder(String name) {
 
-        DriverPass passSet = new DriverPass();
         Driver driverVal = new Driver();
         driverRepo.save(driverVal);
 
@@ -222,13 +206,12 @@ public class TotService {
 
         staffRepo.save(newStaff);
 
-
     }
 
-    public void resetPassword (String name){
+    public void resetPassword(String name) {
 
         List<Driver> driverList = driverRepo.findByDriverName(name);
-        //DriverPass passSet = new DriverPass("12345");
+        // DriverPass passSet = new DriverPass("12345");
         Driver driver1 = driverList.get(0);
         DriverPass passSet1 = driver1.getDriverPass();
         passSet1.setPasswword("12345");
@@ -237,12 +220,11 @@ public class TotService {
 
     }
 
-    public List<Staff> findByLocation(String name){
+    public List<Staff> findByLocation(String name) {
         return staffRepo.findByDeliveryLocation(name);
     }
 
-
-    public List<DriverPass> findAllDriverPass(){
+    public List<DriverPass> findAllDriverPass() {
         return driverPassRepo.findAll();
     }
 

@@ -9,16 +9,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-//@Table(name="Driver")
+// @Table(name="Driver")
 @NoArgsConstructor
 public class Driver {
 
@@ -33,32 +31,20 @@ public class Driver {
     @Column(name = "Route_Location")
     private String location;
 
-    /*@ManyToOne
-    @JoinColumn(name = "ORDER_ID", nullable = true)
-    Staff staff;*/
-
-    //pp
     @OneToMany(mappedBy = "driver")
     private List<Staff> staff;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "driverPass_id")
     DriverPass driverPass;
 
-
-
-
-
-    
-
-    public Driver(String driverName, String location, DriverPass driverPass){
+    public Driver(String driverName, String location, DriverPass driverPass) {
         this.driverName = driverName;
         this.location = location;
         this.driverPass = driverPass;
     }
 
-    public Driver(String driverName, String location){
+    public Driver(String driverName, String location) {
         this.driverName = driverName;
         this.location = location;
         Staff staff = new Staff();
@@ -67,9 +53,5 @@ public class Driver {
         staff.setDeliveryLocation("nudddll");
 
     }
-
-    
-
-
 
 }

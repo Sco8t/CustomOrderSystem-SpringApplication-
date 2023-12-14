@@ -66,7 +66,7 @@ public class MainController {
     @GetMapping("/orderAssign")
     public String getOrderAssign(
             Model model) {
-  
+
         model.addAttribute("driver", totService.findDriver());
         model.addAttribute("staff", totService.findByDriverClass());
         model.addAttribute("order", totService.findOrder());
@@ -100,7 +100,6 @@ public class MainController {
             @RequestParam(required = false) String deleteOrder,
             Model model) {
 
-
         logger.info(deleteOrder);
 
         Integer value = Integer.parseInt(deleteOrder);
@@ -115,14 +114,12 @@ public class MainController {
     @GetMapping("/deleteAll")
     public String deleteAll() {
 
-
         return "delete";
     }
 
     @PostMapping("/deleteAll")
     public String postDeleteAll(
             Model model) {
-
 
         totService.driverAllDelete();
 
@@ -157,7 +154,7 @@ public class MainController {
     public String filterLocation(
             @RequestParam(required = false) String location,
             Model model) {
-    
+
         // model.addAttribute("order", totService.findOrder());
 
         model.addAttribute("order", totService.findByLocation(location));
@@ -184,7 +181,7 @@ public class MainController {
 
     @GetMapping("/password")
     public String getPassword(Model model) {
-   
+
         model.addAttribute("DriverPass", totService.findAllDriverPass());
 
         return "password";
@@ -225,7 +222,6 @@ public class MainController {
             @RequestParam(required = false) String userId,
             @RequestParam(required = false) String password,
             Model model) {
-
 
         String returnPage = totService.findDriverInfo(userId, password);
         if (returnPage.equals("DriverPage")) {
