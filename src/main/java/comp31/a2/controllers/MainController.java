@@ -220,7 +220,7 @@ public class MainController {
         return "driver";
     }
 
-    @GetMapping("/Driver")
+    @GetMapping("/mainPage")
     public String getBooks(
             @RequestParam(required = false) String userId,
             @RequestParam(required = false) String password,
@@ -249,7 +249,7 @@ public class MainController {
         return returnPage;
     }
 
-    @PostMapping("/Driver")
+    @PostMapping("/mainPage")
     public String postBook(
             @RequestParam(required = false) String userId,
             @RequestParam(required = false) String password,

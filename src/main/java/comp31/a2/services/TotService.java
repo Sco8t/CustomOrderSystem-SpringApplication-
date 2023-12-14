@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import comp31.a2.controllers.MainController;
+
 import comp31.a2.model.entities.Admin;
 import comp31.a2.model.entities.Driver;
 import comp31.a2.model.entities.DriverPass;
@@ -67,41 +67,6 @@ public class TotService {
         return driverRepo.findAll();
     }
 
-    /*
-     * public void assignOrder(String orderAssign) {
-     * 
-     * List<Staff> orderList = staffRepo.findByName(orderAssign);
-     * List<Staff> orderList = staffRepo.findByName(orderAssign);
-     * 
-     * Staff orderTemp = orderList.get(0);
-     * 
-     * String foundLocation = orderTemp.getDeliveryLocation().toString();
-     * 
-     * List<Driver> driverList = driverRepo.findByLocation(foundLocation);
-     * 
-     * Driver driverTemp = driverList.get(0);
-     * 
-     * String msg = driverTemp.getStaff().getName().toString();
-     * 
-     * if (driverTemp.getLocation() == orderTemp.getDeliveryLocation()) {
-     * 
-     * orderTemp.setInDelivery("YES");
-     * 
-     * if (msg == "null") {
-     * driverTemp.setStaff(orderTemp);
-     * driverRepo.save(driverTemp);
-     * } else {
-     * Driver dr = new Driver(driverTemp.getDriverName(), driverTemp.getLocation(),
-     * orderTemp, driverTemp.getDriverPass());
-     * driverRepo.save(dr);
-     * }
-     * 
-     * }
-     * 
-     * // else if ()
-     * 
-     * }
-     */
 
     public void assignOrder(String orderAssign) {
 
@@ -121,24 +86,10 @@ public class TotService {
             if (driverTemp.getLocation() == orderTemp.getDeliveryLocation()) {
                 orderTemp.setInDelivery("YES");
 
-                /*
-                 * driverTemp.setStaff(orderList);
-                 * driverRepo.save(driverTemp);
-                 */
 
                 orderTemp.setDriver(driverTemp);
                 staffRepo.save(orderTemp);
 
-                /*
-                 * if (msg == "null") {
-                 * logger.info("2" + "he");
-                 * driverTemp.setStaff(orderList);
-                 * driverRepo.save(driverTemp);
-                 * } else {
-                 * driverTemp.setStaff(orderList);
-                 * driverRepo.save(driverTemp);
-                 * }
-                 */
 
             } else {
                 logger.info("bye");
@@ -149,28 +100,11 @@ public class TotService {
 
     }
 
-    /*
-     * public void driverDelete(Integer id) {
-     * 
-     * logger.info("--------------------" + id);
-     * 
-     * Optional<Staff> staffOptional = staffRepo.findById(id);
-     * 
-     * if (staffOptional.isPresent()) {
-     * Integer hello = staffOptional.get().getId();
-     * driverRepo.deleteById(hello);
-     * 
-     * }
-     * 
-     * }
-     */
+
 
     public void driverDelete(Integer id) {
 
-        /*
-         * Optional<Driver> driverList = driverRepo.findById(id);
-         * logger.info(driverList.get().getStaff().get(0).getDescription());
-         */
+        
 
         Optional<Driver> driverList = driverRepo.findById(id);
         List<Staff> staffList = driverList.get().getStaff();
@@ -248,24 +182,7 @@ public class TotService {
         return totList;
 
     }
-    /*
-     * public Iterable<Staff> findOrderByDriverName(String name) {
-     * 
-     * List<Staff> totList = new ArrayList<>();
-     * 
-     * List<Driver> driverList = driverRepo.findByDriverName(name);
-     * 
-     * 
-     * String foundLoc = driverList.get(0).getLocation().toString();
-     * 
-     * List<Staff> staffList = staffRepo.findByDeliveryLocation(foundLoc);
-     * 
-     * staffList.get(0).getDescription();
-     * 
-     * return staffList;
-     * 
-     * }
-     */
+
 
     public String checkLoginStaff(String name, String password) {
         String webPage = "login-form";
@@ -305,12 +222,6 @@ public class TotService {
 
         staffRepo.save(newStaff);
 
-        /*
-         * driverRepo.save(driverVal);
-         * vale1.setDriver(driverVal);
-         * staffRepo.save(vale1);
-         * driverRepo.deleteById(id);
-         */
 
     }
 
