@@ -1,6 +1,6 @@
 # Project Title
 
-******NOTE: Its a custom made project, not a tutorial based online project )******
+******NOTE: Its a custom made project, not a tutorial based online project )*
 
 This project is a Spring Boot application that follows the MVC architecture and connects to an SQL database. It includes various functionalities such as managing drivers, orders, and staff, along with user authentication and role-based access.
 
